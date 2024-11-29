@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 100px;
+      margin: 0;
+    }
+
+    .display {
+      background-color: rgb(143, 146, 184);
+      color: white;
+      border: 1px solid white;
+      border-radius: 3px;
+      padding: 4px;
+      margin-bottom: 10px;
+      width: 148px;
+      height: 15px;
+      text-align: center;
+    }
+    
+    button {
+      border-radius: 20%;
+      padding: 13px;
+      background-color: rgb(143, 146, 184);
+      color: white;
+      border: none;
+      font-size: 13px;
+      margin: 1px;
+      box-shadow: 2px 3px 4px ;
+    }
+
+    .shadow {
+      background: linear-gradient(to bottom right, rgb(143, 146, 184) 20%, slateblue 100%);
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    .no-shadow {
+      box-shadow: none;
+    }
+
+    p {
+      margin: 4px;
+    }
+  </style>
+</head>
+<body>
+  
+  <p class="display"></p>
+
+  <p>
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '1';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      1
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '2';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      2
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '3';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      3
+    </button>
+
+    <button class="shadow" onclick=" 
+      toggleShadow(this);
+      calculation += ' + ';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      +
+    </button>
+  </p>
+  
+  <p>
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '4';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      4
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '5';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      5
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '6';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      6
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += ' - ';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      -
+    </button>
+  </p>
+
+  <p>
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '7';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      7
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '8';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      8
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '9';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      9
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '*';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      *
+    </button>
+  </p>
+
+  <p>
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '0';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      0
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += '.';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      .
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation = eval(calculation);
+      updateDisplay()
+      console.log(calculation);
+      ">
+      =
+    </button>
+
+    <button class="shadow" onclick="
+      toggleShadow(this);
+      calculation += ' / ';
+      updateDisplay()
+      console.log(calculation);
+      ">
+      /
+    </button>
+  </p>
+  
+  <p>
+  <button class="shadow" onclick="
+  toggleShadow(this);
+  calculation = '';
+  updateDisplay()
+  console.log('Cleared.');
+  ">
+    Clear
+  </button>
+  </p>
+
+  <script>
+    let calculation = "";
+    function toggleShadow(element) {
+      // Remove the shadow class
+      element.classList.remove('shadow');
+      element.classList.add('no-shadow');
+
+      // Reapply the shadow after a short delay
+      setTimeout(() => {
+        element.classList.remove('no-shadow');
+        element.classList.add('shadow');
+      }, 200); // 200 milliseconds delay
+    };
+    function updateDisplay(){
+    const displayElement = document.querySelector('.display');
+    displayElement.innerHTML = calculation;
+    };
+  </script>
+</body>
+</html>
